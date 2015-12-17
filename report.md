@@ -17,7 +17,7 @@ Some information about the data set can be found below.
 # Evaluating model performance
 ## Which measure of model performance is best to use for predicting Boston housing data and analyzing the errors? Why do you think this measurement most appropriate? Why might the other measurements not be appropriate here?
 
-I believe the mean squared error (MSE) is better than mean absolute error (MAE), since MSE emphasizes large error unlike absolute mean or median error. But here I prefer R-squared values, which is nothing else but one minus normalized MSE by the variouse of data input. 
+I believe the mean squared error (MSE) is better than mean absolute error (MAE), since MSE emphasizes large error unlike absolute mean or median error.
 
 ## Why is it important to split the Boston housing data into training and testing data? What happens if you do not do this?
 
@@ -30,7 +30,8 @@ Grid search is a major method used in parameter tuning and the selection of appr
 
 ## Why is cross validation useful and why might we use it with grid search?
 
-The cross validation is assessing the performance of a model, which is trained in an machine learning algorithm, on an independent data set, in order to limit the problems like "over-fitting"
+The cross validation provides a method to cycling through the whole data set and create different training and testing dataset. This method can ensure that model is trained and tested on different dataset each time to limit the over-fitting problem.
+
 
 Gird search performs 3-fold cross validation, so not only can we limit the cross-over-fitting problem, but also the optimize the parameters also through the cross validation.
 
@@ -43,7 +44,9 @@ As the training size increases, the testing error reduces dramatically at beginn
 ## Look at the learning curves for the decision tree regressor with max depth 1 and 10 (first and last learning curve graphs). When the model is fully trained does it suffer from either high bias/under-fitting or high variance/over-fitting?
 
 ![Alt text](Depth1.png "Learning curve of the model with max_depth=1")
-For the model with 1 max depth (the figure above), there must be some high bias, since the under-fitting problem, since even with a lot of training size, the error of testing data is still very high. The model with 10 max depth (the figure below) is a overfitted model, since the error of training dataset is almost zero.
+For the model with 1 max depth (the figure above), there must be some high bias, since the under-fitting problem, since even with a lot of training size, the error of testing data is still very high.
+
+The model with 10 max depth (the figure below) is a over-fitted model, since the error of training dataset is almost zero. However, the testing error fluctuate and cannot reach a stable state.
 ![Alt text](Depth10.png "Learning curve of the model with max_depth=10")
 
 ## Look at the model complexity graph. How do the training and test error relate to increasing model complexity? Based on this relationship, which model (max depth) best generalizes the dataset and why?
@@ -51,7 +54,7 @@ For the model with 1 max depth (the figure above), there must be some high bias,
 
 As the model complexity (max depth) grows, the training errors decrease very fast, and it is very close to 0 when max depth larger than 15. This means the model is over-fitted. However, the testing errors only decreases at beginning and then fluctuates. 
 
-The max depth of best model is 7 based on the above relationship.
+The max depth of best model should be from 5 to 7, since in the above figure, the testing errors are lowest in this range.
 
 
 # Model Prediction
